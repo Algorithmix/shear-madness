@@ -3,7 +3,7 @@ shear-madness
 
 shred shearing experimentation / matlab scripts
 
-`
+```
 // define quadrilateral's corners
 List<IntPoint> corners = new List<IntPoint>( );
 corners.Add( new IntPoint(  99,  99 ) );
@@ -15,4 +15,4 @@ SimpleQuadrilateralTransformation filter =
     new SimpleQuadrilateralTransformation( corners, 200, 200 );
 // apply the filter
 Bitmap newImage = filter.Apply( image );
-`
+```
