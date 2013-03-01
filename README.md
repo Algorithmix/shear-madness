@@ -3,7 +3,7 @@ shear-madness
 
 shred shearing experimentation / matlab scripts
 
-```
+```csharp
 // define quadrilateral's corners
 List<IntPoint> corners = new List<IntPoint>( );
 corners.Add( new IntPoint(  99,  99 ) );
