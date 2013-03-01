@@ -1,0 +1,40 @@
+function chomp(image,tops,bottoms)
+
+[tr tc] = size(tops);
+[br bc] = size(bottoms);
+
+if (tr ~= br)
+   return;
+else
+    len = tr;
+end
+
+ii = 2;
+while( ii <= len )
+    
+    slope = (tops(ii,2)-tops(ii-1,2)) / (tops(ii,1)-tops(ii-1,1));
+    fprintf('slope = %f \n', slope);
+    
+    
+    % From start to end select focal point of image
+    focus = image( tops(ii-1,1):tops(ii,1), :,:);
+    a = -1 *slope;
+    f = flipud(image);
+    if(tops(ii,2)-tops(ii-1,2) > 0) 
+        T = maketform('affine',[1 0 0 ; a 1 0; 0 0 1]);
+    else
+        T = maketform('affine',[1 0 0 ; a 1 0; 0 0 1]);
+    end
+
+    result = imtransform(focus,T,'cubic','FillValues',[0 0 0]');
+    
+    figure;
+    subplot(1,2,1)
+    imshow(result)
+    subplot(1,2,2)
+    imshow(focus)
+    
+    
+    ii = ii +1;
+end
+end
